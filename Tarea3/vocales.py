@@ -1,4 +1,5 @@
 import sys as sys
+import unicodedata
 
 n = int(sys.argv[1])
 lineas = []
@@ -11,6 +12,18 @@ for i in range(n):
 
 for i in range(len(lineas)):
 	linea = lineas[i]
+	#Eliminar mayuscula
+	linea = linea.lower()
+	#Remocion de tildes
+	linea = unicode(linea, "utf-8")
+	unicodedata.normalize('NFKD', linea).encode('ascii','ignore')
+	def elimina_tildes(s):
+		return ''.join((c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn'))
+	linea = elimina_tildes(linea)
+
+	
+
+
 	if (linea[0] != "\n"):
 
 		count = 0
