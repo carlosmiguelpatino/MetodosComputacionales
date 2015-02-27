@@ -11,14 +11,17 @@ for i in range(n):
 
 for i in range(len(lineas)):
 	linea = lineas[i]
-	print linea
-	count = 0
-	for j in range(len(linea)):
-		letra = linea[j]
-		if letra.isalnum() == True:
+	if (linea[0] != "\n"):
+
+		count = 0
+		for j in range(len(linea)):
+			letra = linea[j]
 			if letra == "a" or letra == "e" or letra == "i" or letra == "o" or letra == "u":
 				count += 1
 				
-	print "El numero de vocales en la lineas", i, "es", count
+		print "El numero de vocales en la linea", (i+1), "es", count
+
+	else:
+		print "La linea", (i+1),"es vacia"
 
 
