@@ -2,6 +2,8 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
+os.makedirs("Graficas")
+
 for filename in os.listdir("./Test"):
 	
 	path  = "./Test/" + filename
@@ -12,7 +14,8 @@ for filename in os.listdir("./Test"):
 
 	plt.plot(col1, col2)
 	plt.title(filename)
-	imagepath = "./images/"+filename + ".png"
+	imagepath = filename[:-4]
+	imagepath = "./Graficas/"+ imagepath + ".png"
 	plt.savefig(imagepath)
 
 
